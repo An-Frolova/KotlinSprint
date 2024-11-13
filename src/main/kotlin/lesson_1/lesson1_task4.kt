@@ -2,7 +2,7 @@ package lesson_1
 
 fun main() {
 
-    val length: Long = 40_868_600_000
+    val length: Long = 40_868_600_000L
     val age: Byte = 27
     val partOfDay: Float = 0.075f
     val seconds: Short = 6480
