@@ -4,11 +4,11 @@ fun main() {
 
     val crystalOre = 7
     val ironOre = 11
+    val buffInPercentage = 20
 
-    val buff = 0.2f
-
-    val crystalOreBonus = (crystalOre * buff).toInt()
-    val ironOreBonus = (ironOre * buff).toInt()
+    val buffForCalculations = buffInPercentage * 0.01
+    val crystalOreBonus = (crystalOre * buffForCalculations).toInt()
+    val ironOreBonus = (ironOre * buffForCalculations).toInt()
 
     println("кристаллическая руда +$crystalOreBonus")
     println("железная руда +$ironOreBonus")
