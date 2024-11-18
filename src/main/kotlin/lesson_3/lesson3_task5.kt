@@ -4,13 +4,10 @@ fun main() {
 
     val str = "D2-D4;0"
 
-    val parts = str.split(";")
-    val part1 = parts[0]
-    val moveNumber = parts[1].toInt()
-
-    val move = part1.split("-")
-    val moveFrom = move[0]
-    val moveTo = move[1]
+    val parts = str.split('-', ';')
+    val moveFrom = parts[0]
+    val moveTo = parts[1]
+    val moveNumber = parts[2]
 
     println(moveFrom)
     println(moveTo)
