@@ -9,11 +9,11 @@ fun main() {
 
     println(
         "Благоприятные ли условия сейчас для роста бобовых? " +
-                "${isSunny == IS_SUNNY && openAwning == OPEN_AWNING && humidity == HUMIDITY && season == SEASON}"
+                "${isSunny == IS_SUNNY && openAwning == OPEN_AWNING && humidity == HUMIDITY && season != SEASON}"
     )
 }
 
 const val IS_SUNNY = true
 const val OPEN_AWNING = true
 const val HUMIDITY = 20
-const val SEASON = "not winter"
+const val SEASON = "winter"
