@@ -1,13 +1,11 @@
 package lesson_5
 
-import kotlin.random.Random
-
 fun main() {
 
-    val a = Random.nextInt(1,6)
-    val b = Random.nextInt(1, 6)
+    val a = (1..10).random()
+    val b = (1..10).random()
     println("Решите пример:\n$a+$b=")
-    val correctAnswer = a+b
+    val correctAnswer = a + b
     val userAnswer = readln().toInt()
 
     if (userAnswer == correctAnswer) {
