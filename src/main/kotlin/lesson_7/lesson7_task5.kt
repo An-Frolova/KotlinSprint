@@ -5,7 +5,7 @@ fun main() {
     println("Введите число, которое будет соответсвовать количеству символов в пароле")
     var charNumber = readln().toInt()
     while (charNumber < MIN_LENGTH_OF_PASSWORD) {
-        println("Минимальное количество символов - 6")
+        println("Минимальное количество символов - $MIN_LENGTH_OF_PASSWORD")
         charNumber = readln().toInt()
     }
 
