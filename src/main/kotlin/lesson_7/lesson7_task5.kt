@@ -9,12 +9,29 @@ fun main() {
         charNumber = readln().toInt()
     }
 
-    val rangesOfChars = (0..9) + ('a'..'z') + ('A'..'Z')
+    val numberRange = '0'.code..'9'.code
+    val letterRange = 'a'.code..'z'.code
+    val upperCaseLetterRange = 'A'.code..'Z'.code
+    val listOfRanges = numberRange + letterRange + upperCaseLetterRange
 
-    for (i in 1..charNumber) {
-        val randomChar = rangesOfChars.random()
-        print("$randomChar")
+    val listOfRandomChars = mutableListOf<Char>()
+
+    val char1 = numberRange.random().toChar()
+    val char2 = letterRange.random().toChar()
+    val char3 = upperCaseLetterRange.random().toChar()
+    listOfRandomChars.add(char1)
+    listOfRandomChars.add(char2)
+    listOfRandomChars.add(char3)
+
+    val remainingChars = charNumber - listOfRandomChars.size
+
+    for (i in 1..remainingChars) {
+        val char = listOfRanges.random().toChar()
+        listOfRandomChars.add(char)
     }
+
+    listOfRandomChars.shuffle()
+    println(listOfRandomChars.joinToString(""))
 }
 
 const val MIN_LENGTH_OF_PASSWORD = 6
