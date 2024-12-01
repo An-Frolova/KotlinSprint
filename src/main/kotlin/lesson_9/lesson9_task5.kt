@@ -12,11 +12,9 @@ fun main() {
         }
         ingredients.add(ingredient)
     }
-    val ingredientsSorted = ingredients.sorted()
-    val ingredientsFirstCapitalLetter = ingredientsSorted.mapIndexed { index, ingredient ->
-        if (index == 0) ingredient.replaceFirstChar { it.uppercaseChar() } else ingredient
-    }
-    println(ingredientsFirstCapitalLetter.joinToString(", "))
+    val ingredientsAsOneString =
+        ingredients.sorted().joinToString(", ", postfix = ".").replaceFirstChar { it.uppercaseChar() }
+    println(ingredientsAsOneString)
 }
 
 const val NUMBER_OF_INGREDIENTS = 5
