@@ -3,18 +3,16 @@ package lesson_10
 var humanWins = 0
 
 fun main() {
-    var continueGame = true
-    playRound()
-    while (continueGame) {
+    var continueGame: Boolean
+    do {
+        playRound()
         println("Хотите бросить кости еще раз? Введите Да или Нет")
-        val userAnswer = readln().lowercase().replaceFirstChar { it.uppercaseChar() }
-        if (userAnswer == "Да") {
-            playRound()
-        } else {
+        val userAnswer = readln().lowercase()
+        continueGame = userAnswer == "да"
+        if (!continueGame) {
             println("Игра окончена. Количество выигранных партий: $humanWins.")
-            continueGame = false
         }
-    }
+    } while (continueGame)
 }
 
 fun playRound() {
