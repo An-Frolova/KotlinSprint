@@ -6,6 +6,7 @@ class Category(
     val name: String,
     val description: String,
     val imageUrl: String,
+    val recipes: MutableList<Recipe>,
 )
 
 class Recipe(
