@@ -8,11 +8,11 @@ fun main() {
 class DailyWeather(
     dayTemperatureInKelvin: Int,
     nightTemperatureInKelvin: Int,
-    isRainingInKelvin: Boolean
+    _isRaining: Boolean
 ) {
     private val dayTemperatureInCelsius = (dayTemperatureInKelvin + KELVIN_ZERO).toInt()
     private val nightTemperatureInCelsius = (nightTemperatureInKelvin + KELVIN_ZERO).toInt()
-    private val isRaining = isRainingInKelvin
+    private val isRaining = _isRaining
 
     fun printInfo() {
         println(
