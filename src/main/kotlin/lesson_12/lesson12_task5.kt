@@ -5,11 +5,13 @@ import kotlin.random.Random
 fun main() {
 
     val monthTemperature = mutableListOf<WeatherAnalysis>()
+    val dayTemperatureRange = 18..29
+    val nightTemperatureRange = 14..18
 
     for (i in 1..30) {
         val dailyWeather = WeatherAnalysis(
-            dayTemperature = (18..29).random(),
-            nightTemperature = (14..18).random(),
+            dayTemperatureRange.random(),
+            nightTemperatureRange.random(),
             isRaining = Random.nextBoolean()
         )
         monthTemperature.add(dailyWeather)
