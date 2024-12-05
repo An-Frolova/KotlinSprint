@@ -19,10 +19,7 @@ class Forum() {
     private var userId = 1
 
     fun createNewUser(name: String): ForumMember {
-        val user = ForumMember.ForumMemberBuilder()
-            .setUserId(userId++)
-            .setUserName(name)
-            .build()
+        val user = ForumMember(userId++, name)
         members.add(user)
         return user
     }
@@ -30,10 +27,7 @@ class Forum() {
     fun createNewMessage(userId: Int, message: String): ForumMessage? {
         val user = members.find { it.userId == userId }
         return if (user != null) {
-            val newMessage = ForumMessage.ForumMessageBuilder()
-                .setAuthorId(userId)
-                .setMessage(message)
-                .build()
+            val newMessage = ForumMessage(userId, message)
             messages.add(newMessage)
             newMessage
         } else {
@@ -53,33 +47,9 @@ class Forum() {
 class ForumMember(
     val userId: Int,
     val userName: String,
-) {
-    class ForumMemberBuilder() {
-        var userId: Int = 0
-        var userName: String = ""
-
-        fun setUserId(value: Int) = apply { this.userId = value }
-        fun setUserName(value: String) = apply { this.userName = value }
-
-        fun build(): ForumMember {
-            return ForumMember(userId, userName)
-        }
-    }
-}
+)
 
 class ForumMessage(
     val authorId: Int,
     val message: String,
-) {
-    class ForumMessageBuilder() {
-        var authorId: Int = 0
-        var message: String = ""
-
-        fun setAuthorId(value: Int) = apply { this.authorId = value }
-        fun setMessage(value: String) = apply { this.message = value }
-
-        fun build(): ForumMessage {
-            return ForumMessage(authorId, message)
-        }
-    }
-}
+)
