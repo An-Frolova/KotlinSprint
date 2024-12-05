@@ -10,10 +10,8 @@ fun main() {
         TelephoneDirectory("Ирина", 89113330819, "Ozon")
     )
 
-    for (i in 0..<phoneNumbers.size) {
-        phoneNumbers[i].printInfo()
-        println()
-    }
+    val companies = phoneNumbers.mapNotNull { it.company }.toMutableSet()
+    println(companies.joinToString(", "))
 }
 
 class TelephoneDirectory(
