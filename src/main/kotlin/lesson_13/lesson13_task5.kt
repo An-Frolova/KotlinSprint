@@ -8,7 +8,7 @@ fun main() {
         val numberLong = numberString.toLong()
         println("Введенный номер: $numberLong")
     } catch (e: Exception) {
-        println("Ошибка: $e")
+        println("Ошибка: ${e::class.simpleName}")
     }
 }
 
