@@ -4,16 +4,12 @@ class Chat() {
 
     val allMessagesList = mutableListOf<Message>()
 
-    fun addMessage(textMessage: String, authorName: String): Message {
-        val newMessage = Message(authorName, textMessage)
-        allMessagesList.add(newMessage)
-        return newMessage
+    fun addMessage(textMessage: String, authorName: String) {
+        allMessagesList.add(Message(authorName, textMessage))
     }
 
-    fun addThreadMessage(parentMessageId: Int, textMessage: String, authorName: String): ChildMessage {
-        val newChildMessage = ChildMessage(authorName, textMessage, parentMessageId)
-        allMessagesList.add(newChildMessage)
-        return newChildMessage
+    fun addThreadMessage(parentMessageId: Int, textMessage: String, authorName: String) {
+        allMessagesList.add(ChildMessage(authorName, textMessage, parentMessageId))
     }
 
     fun printChat() {
