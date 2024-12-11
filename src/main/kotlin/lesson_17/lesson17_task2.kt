@@ -4,12 +4,13 @@ fun main() {
 
     val ship = Ship("Надежда", 50, "Кейптаун")
     ship.name = "Черная жемчужина"
+    println(ship.name)
 }
 
 class Ship(
-    private var shipName: String,
-    private var speed: Int,
-    private var seaport: String,
+    shipName: String,
+    var speed: Int,
+    var seaport: String,
 ) {
 
     var name = shipName
