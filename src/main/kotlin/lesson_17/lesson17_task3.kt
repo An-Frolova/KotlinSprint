@@ -9,22 +9,20 @@ fun main() {
 }
 
 class Folder(
-    private val folderName: String,
-    private val filesCountInFolder: Int,
-    private val isSecret: Boolean,
+    folderName: String,
+    filesCountInFolder: Int,
+    val isSecret: Boolean,
 ) {
 
-    val name: String
+    val name = folderName
         get() = if (isSecret) {
             "скрытая папка"
         } else {
-            folderName
+            field
         }
 
-    val filesCount: Int
-        get() = if (isSecret) {
-            0
-        } else {
-            filesCountInFolder
+    val filesCount = filesCountInFolder
+        get() = if (isSecret) 0 else {
+            field
         }
 }
