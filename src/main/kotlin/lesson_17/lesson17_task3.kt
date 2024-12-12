@@ -22,7 +22,9 @@ class Folder(
         }
 
     val filesCount = filesCountInFolder
-        get() = if (isSecret) 0 else {
+        get() = if (isSecret) {
+            0
+        } else {
             field
         }
 }
