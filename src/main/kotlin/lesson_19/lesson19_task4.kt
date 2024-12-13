@@ -21,15 +21,15 @@ enum class Ammunition(val strength: Int) {
 
 class Tank() {
 
-    private lateinit var ammunitionType: Ammunition
+    private var ammunitionType: Ammunition? = null
 
     fun changeAmmunitionType(newAmmunition: Ammunition) {
         ammunitionType = newAmmunition
     }
 
     fun shoot() {
-        if (::ammunitionType.isInitialized) {
-            println("Урон ${ammunitionType.strength}")
+        if (ammunitionType != null) {
+            println("Урон ${ammunitionType?.strength}")
         } else {
             println("Урон 0")
         }
