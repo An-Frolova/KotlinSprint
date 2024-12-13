@@ -15,8 +15,8 @@ enum class Category {
 
     CLOTHES, STATIONERY, OTHER;
 
-    fun setCategoryName(category: Category): String {
-        return when (category) {
+    fun getCategoryName(): String {
+        return when (this) {
             Category.CLOTHES -> "Одежда"
             Category.STATIONERY -> "Канцелярские товары"
             Category.OTHER -> "Разное"
@@ -30,6 +30,6 @@ class Item(
     val category: Category
 ) {
     fun printInfo() {
-        println("Название: $name Раздел: ${category.setCategoryName(category)}")
+        println("Название: $name Раздел: ${category.getCategoryName()}")
     }
 }
