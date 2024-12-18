@@ -5,13 +5,13 @@ fun main() {
     val robot = Robot()
 
     robot.say()
-    robot.setModifier { list -> list.map { it.reversed() } }
+    robot.setModifier { it.reversed() }
     robot.say()
 }
 
 class Robot {
 
-    private var phrases = listOf(
+    private val phrases = listOf(
         "Привет! Как я могу вам помочь сегодня?",
         "Моя цель — сделать вашу жизнь проще.",
         "Ваша улыбка заряжает меня энергией больше, чем солнечная батарея!",
@@ -19,11 +19,13 @@ class Robot {
         "Я всегда рад помочь, обращайтесь снова!",
     )
 
+    private var modifier: (String) -> String = { it }
+
     fun say() {
-        println(phrases.random())
+        println(modifier((phrases).random()))
     }
 
-    fun setModifier(modifier: (List<String>) -> List<String>) {
-        phrases = modifier(phrases)
+    fun setModifier(newModifier: (String) -> String) {
+        modifier = newModifier
     }
 }
