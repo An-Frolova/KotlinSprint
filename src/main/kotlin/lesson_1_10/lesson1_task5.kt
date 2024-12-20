@@ -4,11 +4,14 @@ fun main() {
 
     val secondsInFlight = 6480
 
-    val minutes = secondsInFlight / 60
-    val seconds = secondsInFlight % 60
+    val minutes = secondsInFlight / SECONDS_IN_MINUTE
+    val seconds = secondsInFlight % SECONDS_IN_MINUTE
 
-    val hours = minutes / 60
-    val remainingMinutes = minutes % 60
+    val hours = minutes / MINUTES_IN_HOUR
+    val remainingMinutes = minutes % MINUTES_IN_HOUR
 
     println("${"%02d".format(hours)}:${"%02d".format(remainingMinutes)}:${"%02d".format(seconds)}")
 }
+
+const val SECONDS_IN_MINUTE = 60
+const val MINUTES_IN_HOUR = 60
