@@ -1,15 +1,18 @@
 package lesson_22
 
-class MainScreenViewModel(private val mainScreenState: MainScreenState) {
+class MainScreenViewModel() {
 
     data class MainScreenState(
-        var data: String?,
+        var data: String? = null,
         var isLoading: Boolean = false,
     )
 
+    private val mainScreenState = MainScreenState()
+
     fun loadData() {
-        var currentState = mainScreenState.copy(data = null)
-        currentState = mainScreenState.copy(isLoading = true)
-        currentState = mainScreenState.copy(data = "Загруженные данные", isLoading = false)
+        mainScreenState.isLoading = true
+        Thread.sleep(1000)
+        mainScreenState.isLoading = false
+        mainScreenState.data = "Загруженные данные"
     }
 }
