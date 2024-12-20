@@ -8,17 +8,16 @@ fun main() {
     val height = readln().toFloat()
 
     val heightInMeters = height / CENTIMETERS_IN_METER
-    val imt = weight / (heightInMeters * heightInMeters)
+    val bmi = weight / (heightInMeters * heightInMeters)
 
-    if (imt < MINIMUM_PERMISSIBLE_BMI_VALUE) {
-        println("Недостаточная масса тела")
-    } else if (imt >= MINIMUM_PERMISSIBLE_BMI_VALUE && imt < MAXIMUM_PERMISSIBLE_BMI_VALUE) {
-        println("Нормальная масса тела")
-    } else if (imt >= MAXIMUM_PERMISSIBLE_BMI_VALUE && imt < DANGEROUS_BMI_VALUE) {
-        println("Избыточная масса тела")
-    } else if (imt >= DANGEROUS_BMI_VALUE) {
-        println("Ожирение")
+    val weightCategory = when {
+        bmi < MINIMUM_PERMISSIBLE_BMI_VALUE -> "Недостаточная масса тела"
+        bmi >= MINIMUM_PERMISSIBLE_BMI_VALUE && bmi < MAXIMUM_PERMISSIBLE_BMI_VALUE -> "Нормальная масса тела"
+        bmi >= MAXIMUM_PERMISSIBLE_BMI_VALUE && bmi < DANGEROUS_BMI_VALUE -> "Избыточная масса тела"
+        else -> "Ожирение"
     }
+
+    println("ИМТ: ${String.format("%.2f", bmi)}. Категория: $weightCategory")
 }
 
 const val CENTIMETERS_IN_METER = 100
